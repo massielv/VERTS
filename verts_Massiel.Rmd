@@ -1,0 +1,93 @@
+---
+title: "Linking vertebral trabecular microstructure variation to hominoid locomotion, Part I: Homo sapiens"
+author: "Massiel Valcarcel"
+date: "2023-02-23"
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+library(readxl)
+df <- read_excel("copy of complied.xlsx")
+
+```
+```{r}
+install.packages("rlang")
+
+library(rlang)
+
+library(ggplot2)
+library(dplyr)
+
+
+```
+
+
+```{r}
+
+ggplot(df, aes(x=, y=TT)) +
+  geom_boxplot()
+
+ggplot(df, aes(x=AP, y=TN)) +
+  geom_boxplot()
+
+ggplot(df, aes(x=AP, y=DA)) +
+  geom_boxplot()
+
+ggplot(df, aes(x=AP, y=CD)) +
+  geom_boxplot()
+
+```
+```{r}
+ggplot(df, aes(x=AP, y=CD, fill=AP)) +
+  geom_boxplot() +
+  scale_fill_manual(values=c("#F8766D", "#00BFC4", "#7CAE00")) 
+
+ggplot(df, aes(x=AP, y=TN, fill=AP)) +
+  geom_boxplot() +
+  scale_fill_manual(values=c("#F8766D", "#00BFC4", "#7CAE00")) 
+
+ggplot(df, aes(x=AP, y=TT, fill=AP)) +
+  geom_boxplot() +
+  scale_fill_manual(values=c("#F8766D", "#00BFC4", "#7CAE00")) 
+
+ggplot(df, aes(x=AP, y=DA, fill=AP)) +
+  geom_boxplot() +
+  scale_fill_manual(values=c("#F8766D", "#00BFC4", "#7CAE00")) 
+
+```
+```{r}
+install.packages("FactoMineR")
+library(FactoMineR)
+
+
+```
+
+```{r}
+library(readxl)
+df <- read_excel("copy of complied.xlsx")
+
+```
+```{r}
+ggplot(df, aes(x=`Anterior Posterior`, y=`Trabecular Thickness`, fill=`Anterior Posterior`)) +
+  geom_boxplot() +
+  scale_fill_manual(values=c("#F8766D", "#00BFC4", "#7CAE00"))
+
+ggplot(df, aes(x=`Anterior Posterior`, y=`Trabecular Number`, fill=`Anterior Posterior`)) +
+  geom_boxplot() +
+  scale_fill_manual(values=c("#F8766D", "#00BFC4", "#7CAE00"))
+
+ggplot(df, aes(x=`Anterior Posterior`, y=`Connectivity Density`, fill=`Anterior Posterior`)) +
+  geom_boxplot() +
+  scale_fill_manual(values=c("#F8766D", "#00BFC4", "#7CAE00"))
+
+ggplot(df, aes(x=`Anterior Posterior`, y=`Degree of Anisotropy`, fill=`Anterior Posterior`)) +
+  geom_boxplot() +
+  scale_fill_manual(values=c("#F8766D", "#00BFC4", "#7CAE00"))
+
+
+```
+
+
+
